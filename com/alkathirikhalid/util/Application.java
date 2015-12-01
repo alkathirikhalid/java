@@ -13,8 +13,13 @@ public class Application {
 		// Clear history in memory
 		History.clearHistory();
 		
-		// Loads history from file
-		Writer.read();
+            try {
+            	// Loads history from file
+                Writer.read();
+            } catch (FileNotFoundException e){
+            	// If file not found then create
+                Writer.write();
+            	}
 		
 		// Add items to history list in memory
 		History.addHistory("1");
